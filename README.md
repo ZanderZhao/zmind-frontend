@@ -28,7 +28,9 @@
 Node端地址：[mind-map-node](https://github.com/zyascend/mind-map-node)  
 
 ## 下载&安装
-
+- 前置条件及说明
+  - [先完成后端部分安装配置](https://github.com/seasnakes/mind-map-node)
+  - 因sentry对新手不怎么友好，为了便于理解上手将其从项目中移除，
 - 下载
 
   ```bash
