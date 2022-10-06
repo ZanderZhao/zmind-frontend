@@ -1,5 +1,4 @@
-<div align="center">
-<img src="https://cdn.kimjisoo.cn/pic/logo.png" align="center" width="176" height="56"/>
+# 知更
 </div>  
 <p align="center">
 </p>
@@ -16,14 +15,9 @@
 </p>
 
 ## 简介
-**仿[幕布](https://mubu.com)思维导图网站。支持导图编辑、大纲编辑、图片导出、扫码登录。**  
+**仿[幕布](https://mubu.com)思维导图网站。支持导图编辑、大纲编辑、图片导出**  
 
-## 项目地址：
-项目总结：[ZMindMap-Wiki](https://github.com/zyascend/ZMindMap/wiki)  
 
-预览地址：[ZMind思维导图](https://map.kimjisoo.cn)
-
-移动端地址: [ZMindMap-Mobile](https://github.com/zyascend/ZMindMap-Mobile)  
 
 Node端地址：[mind-map-node](https://github.com/zyascend/mind-map-node)  
 
