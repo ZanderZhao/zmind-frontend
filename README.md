@@ -9,9 +9,7 @@
   <a href="https://v3.cn.vuejs.org/">
       <img src="https://img.shields.io/badge/vue.js-3.2-green" alt="Vue3.2">
   </a>
-  <a href="https://map.kimjisoo.cn">
-      <img src="https://img.shields.io/badge/🚀-open--in--browser-blueviolet" alt="Live Demo">
-  </a>
+  
 </p>
 
 ## 简介
@@ -19,21 +17,19 @@
 
 
 
-Node端地址：[mind-map-node](https://github.com/zyascend/mind-map-node)  
+Node端地址：[zhigeng-backend](https://github.com/seasnakes/zhigeng-backend) 
 
 ## 下载&安装
 - 前置条件及说明
-  - [先完成后端部分安装配置](https://github.com/seasnakes/mind-map-node)
+  - [先完成后端部分安装配置](https://github.com/seasnakes/zhigeng-backend)
   - 因sentry对新手不怎么友好，为了便于理解上手将其从项目中移除，
 - 下载
 
-  ```bash
-  git clone --depth=1 https://github.com/zyascend/ZMindMap.git
-  ```
+  
 
 - 进入项目目录
   ```bash
-  cd ZmindMap
+  cd ZhiGeng
   ```
 - 安装依赖
 
