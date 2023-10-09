@@ -1,23 +1,22 @@
 
 version: '3'
-# docker run -d --name tldraw -p 3445:3000 liwangsheng/tldraw
-# docker run -d --name tldraw -p 3445:80 ratneo/tldraw
+
 services:
   zmind-frontend:
-    # container_name: zmind-frontend
-    image: zanderzhao/zmind-frontend #:v0.0.6
-    image: zmind-frontend
+    container_name: zmind-frontend
+    image: zanderzhao/zmind-frontend
+    # image: zmind-frontend
     restart: always
-    # 宿主机器，这个端口映射就不生效了
     ports:
-      - 8920:8080
+      - 3004:8080
     # network_mode: host
     # volumes:
     #   - ${PWD}/data:/app
     environment:
       - NODE_ENV=production
       - WATER_PRINT_COPYRIGHT=ZMIND
-      - ZMIND_FRONTEND_URL=https://z.z.z
-      - ZMIND_BACKEND_URL=https://z.z.z
+      - ZMIND_FRONTEND_URL=http://127.0.0.1:3004
+      - ZMIND_BACKEND_URL=http://127.0.0.1:3003
       - BAIDU_HM=https://hm.baidu.com/hm.js?zzz
+
 

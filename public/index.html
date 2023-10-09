@@ -9,21 +9,19 @@
     <meta http-equiv="x-dns-prefetch-control" content="on" />
     <!-- <link ref="dns-prefetch" href="//cdn.kimjisoo.cn" />
     <link ref="dns-prefetch" href="//mapapi.kimjisoo.cn" /> -->
-    <link ref="dns-prefetch" href=process.env.ZMIND_FRONTEND_URL />
-    <link ref="dns-prefetch" href=process.env.ZMIND_BACKEND_URL />
+    <link ref="dns-prefetch" href="http://localhost:3004" />
+    <link ref="dns-prefetch" href="http://localhost:3003" />
 
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
     <script>
       window.CFG = {
         apiCfg: {
-          // prdHost: 'https://mapapi.kimjisoo.cn',
-          prdHost: process.env.ZMIND_FRONTEND_URL,
+          prdHost: 'http://localhost:3003',
           devHost: 'http://localhost:3003'
         },
         socketCfg: {
-          // prdHost: 'https://mapapi.kimjisoo.cn',
-          prdHost: '{{ process.env.ZMIND_BACKEND_URL }}',
+          prdHost: 'http://localhost:3003',
           devHost: 'http://localhost:3003'
         },
         websiteCfg: {
@@ -40,8 +38,7 @@
       window._hmt = _hmt;
       (function() {
         var hm = document.createElement("script");
-        // hm.src = "https://hm.baidu.com/hm.js?e62ef51ba4cae3940ed9b24a9b62ac11";
-        hm.src = process.env.BAIDU_HM;
+        hm.src = "https://hm.baidu.com/hm.js?e62ef51ba4cae3940ed9b24a9b62ac11";
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
       })();

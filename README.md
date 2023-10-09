@@ -20,27 +20,58 @@
 Node端地址：[zmind-backend](https://github.com/zanderzhao/zmind-backend) 
 
 ## 下载&安装
-- 前置条件及说明
-  - [先完成后端部分安装配置](https://github.com/zanderzhao/zmind-backend)
-  - 因sentry对新手不怎么友好，为了便于理解上手将其从项目中移除，
-- 下载
 
-  
+docker-compose 版本
 
-- 进入项目目录
-  ```bash
-  cd zmind-backend
-  ```
-- 安装依赖
+```yml
 
-  ```bash
-  npm install
-  ```
+version: '3'
 
-- 运行
-  ```bash
-  npm run serve
-  ```
+services:
+  zmind-frontend:
+    container_name: zmind-frontend
+    image: zanderzhao/zmind-frontend
+    # image: zmind-frontend
+    restart: always
+    ports:
+      - 3004:8080
+    # network_mode: host
+    # volumes:
+    #   - ${PWD}/data:/app
+    links:
+      - zmind-backend
+    environment:
+      - NODE_ENV=production
+      - WATER_PRINT_COPYRIGHT=ZMIND
+      - ZMIND_FRONTEND_URL=http://127.0.0.1:3004
+      - ZMIND_BACKEND_URL=http://127.0.0.1:3003
+      - BAIDU_HM=https://hm.baidu.com/hm.js?zzz
+
+  zmind-backend:
+    container_name: zmind-backend
+    image: zanderzhao/zmind-backend
+    # image: zmind-backend
+    ports:
+      - 3003:3003  # 如果你的App需要公开端口，可以映射到宿主机
+    links:
+      - zmind-backend-redis
+      - zmind-backend-mongodb
+    environment:
+      - NODE_ENV=production
+
+  zmind-backend-redis:
+    container_name: zmind-backend-redis
+    image: redis:latest
+    # 6379
+
+  zmind-backend-mongodb:
+    container_name: zmind-backend-mongodb
+    image: mongo:latest
+    # 27017
+
+```
+
+
 ## 效果图
 
 | <img src="https://github.com/zyascend/ZMindMap/blob/main/assets/export07.png?raw=true" style="zoom:20%;" /> | <img src="https://github.com/zyascend/ZMindMap/blob/main/assets/export02.png?raw=true" style="zoom:20%;" /> |
@@ -101,7 +132,16 @@ Node端地址：[zmind-backend](https://github.com/zanderzhao/zmind-backend)
 
 
 
+## 说明
 
+
++ 这是前端
+
++ 基于[zyascend/ZMindMap](https://github.com/zyascend/ZMindMap)参考[seasnakes/ZhiGeng](https://github.com/seasnakes/ZhiGeng)
+
++ 截止202310，好像还不支持主题拖动排序
+
++ 还有一些url作者写死的改成localhost了，本地可以跑通，云端可能要改点东西
 
 
 
