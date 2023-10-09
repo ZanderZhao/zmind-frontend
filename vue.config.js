@@ -10,16 +10,21 @@ const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 
 const IS_PROD = process.env.NODE_ENV === 'production'
 const getAliasPath = dir => path.join(__dirname, dir)
+const ZMIND_BACKEND_URL = process.env.ZMIND_BACKEND_URL
+const ZMIND_FRONTEND_URL = process.env.ZMIND_FRONTEND_URL
 
 module.exports = {
+  devServer: { disableHostCheck: true },
   productionSourceMap: false,
   lintOnSave: !IS_PROD,
-  publicPath: IS_PROD ? 'https://cdn.kimjisoo.cn/' : '/',
+  // publicPath: IS_PROD ? 'https://cdn.kimjisoo.cn/' : '/',
+  publicPath: IS_PROD ? ZMIND_FRONTEND_URL : '/',
+  
   pages: {
     index: {
       entry: './src/main.js',
       template: './public/index.html',
-      title: '知更',
+      title: 'ZMind',
       chunks: [
         'chunk-vendors',
         'chunk-vendors-2',
@@ -150,7 +155,8 @@ module.exports = {
       new HardSourceWebpackPlugin(),
       new webpack.DefinePlugin({
         BASE_API_URL: IS_PROD
-          ? JSON.stringify('https://mapapi.kimjisoo.cn')
+          // ? JSON.stringify('https://mapapi.kimjisoo.cn')
+          ? JSON.stringify(ZMIND_BACKEND_URL)
           : JSON.stringify('http://localhost:3003')
       }),
       AutoImport({

@@ -1,0 +1,16 @@
+
+version: '3'
+# docker run -d --name tldraw -p 3445:3000 liwangsheng/tldraw
+# docker run -d --name tldraw -p 3445:80 ratneo/tldraw
+services:
+  zmindmapdocker:
+    container_name: zmindmapdocker
+    image: zanderzhao/zmindmap:v0.0.4
+    restart: always
+    # 宿主机器，这个端口映射就不生效了
+    ports:
+      - 8920:8080
+    # network_mode: host
+    # volumes:
+    #   - ${PWD}/data:/app
+   

@@ -56,7 +56,9 @@ export default function svg2Png(svgId, picName) {
     $waterPrint.setAttribute('y', svgMetrics.height - 10)
     // TODO 可以优化 水印的颜色设置为当前背景的反转就不用担心水印看不到了
     $waterPrint.setAttribute('style', 'color:#000;opacity:0.2;font-size:16px;')
-    $waterPrint.innerHTML = '@map.kimjisoo.cn'
+    const waterPrintCopyright = process.env.WATER_PRINT_COPYRIGHT
+    // $waterPrint.innerHTML = '@map.kimjisoo.cn'
+    $waterPrint.innerHTML = waterPrintCopyright
     $clonedSvg.appendChild($waterPrint)
     // 准备工作完成 开始转换
     resolve($clonedSvg)

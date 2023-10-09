@@ -21,7 +21,7 @@
             @click="isQrcodeLogin = !isQrcodeLogin"
           />
           <h3 class="title">
-            {{ isLogin ? '登录' : '注册' }}<span>知更</span>
+            {{ isLogin ? '登录' : '注册' }}<span>ZMind</span>
           </h3>
           <el-form
             ref="loginFormRef"

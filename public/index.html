@@ -7,18 +7,23 @@
     <meta name="keywords" content="思维导图;在线笔记;SVG;Vue;"/>
     <meta name="description" content="ZMindMap是一款结合了大纲笔记和思维导图的头脑管理工具。使用Vue.js构造" data-react-helmet="true">
     <meta http-equiv="x-dns-prefetch-control" content="on" />
-    <link ref="dns-prefetch" href="//cdn.kimjisoo.cn" />
-    <link ref="dns-prefetch" href="//mapapi.kimjisoo.cn" />
+    <!-- <link ref="dns-prefetch" href="//cdn.kimjisoo.cn" />
+    <link ref="dns-prefetch" href="//mapapi.kimjisoo.cn" /> -->
+    <link ref="dns-prefetch" href="{{ process.env.ZMIND_FRONTEND_URL }}" />
+    <link ref="dns-prefetch" href="{{ process.env.ZMIND_BACKEND_URL }}" />
+
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
     <script>
       window.CFG = {
         apiCfg: {
-          prdHost: 'https://mapapi.kimjisoo.cn',
+          // prdHost: 'https://mapapi.kimjisoo.cn',
+          prdHost: '{{ process.env.ZMIND_FRONTEND_URL }}',
           devHost: 'http://localhost:3003'
         },
         socketCfg: {
-          prdHost: 'https://mapapi.kimjisoo.cn',
+          // prdHost: 'https://mapapi.kimjisoo.cn',
+          prdHost: '{{ process.env.ZMIND_BACKEND_URL }}',
           devHost: 'http://localhost:3003'
         },
         websiteCfg: {
@@ -30,11 +35,13 @@
       }
     </script>
     <script>
+
       var _hmt = _hmt || [];
       window._hmt = _hmt;
       (function() {
         var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?e62ef51ba4cae3940ed9b24a9b62ac11";
+        // hm.src = "https://hm.baidu.com/hm.js?e62ef51ba4cae3940ed9b24a9b62ac11";
+        hm.src = "{{ process.env.BAIDU_HM }}";
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
       })();

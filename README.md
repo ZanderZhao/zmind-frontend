@@ -1,4 +1,4 @@
-# 知更
+# ZMind
 </div>  
 <p align="center">
 </p>
@@ -17,11 +17,11 @@
 
 
 
-Node端地址：[zhigeng-backend](https://github.com/seasnakes/zhigeng-backend) 
+Node端地址：[zmind-backend](https://github.com/zanderzhao/zmind-backend) 
 
 ## 下载&安装
 - 前置条件及说明
-  - [先完成后端部分安装配置](https://github.com/seasnakes/zhigeng-backend)
+  - [先完成后端部分安装配置](https://github.com/zanderzhao/zmind-backend)
   - 因sentry对新手不怎么友好，为了便于理解上手将其从项目中移除，
 - 下载
 
@@ -29,7 +29,7 @@ Node端地址：[zhigeng-backend](https://github.com/seasnakes/zhigeng-backend)
 
 - 进入项目目录
   ```bash
-  cd ZhiGeng
+  cd zmind-backend
   ```
 - 安装依赖
 
