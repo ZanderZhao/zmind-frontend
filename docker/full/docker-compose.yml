@@ -1,0 +1,48 @@
+
+version: '3'
+# docker run -d --name tldraw -p 3445:3000 liwangsheng/tldraw
+# docker run -d --name tldraw -p 3445:80 ratneo/tldraw
+services:
+  zmind-frontend:
+    # container_name: zmind-frontend
+    image: zanderzhao/zmind-frontend #:v0.0.6
+    image: zmind-frontend
+    restart: always
+    # 宿主机器，这个端口映射就不生效了
+    ports:
+      - 8920:8080
+    # network_mode: host
+    # volumes:
+    #   - ${PWD}/data:/app
+    links:
+      - zmind-backend
+    environment:
+      - NODE_ENV=production
+      - WATER_PRINT_COPYRIGHT=ZMIND
+      - ZMIND_FRONTEND_URL=http://127.0.0.1:8080
+      - ZMIND_BACKEND_URL=http://zmind-backend:3003
+      - BAIDU_HM=https://hm.baidu.com/hm.js?zzz
+
+  zmind-backend:
+    container_name: zmind-backend
+    image: zanderzhao/zmind-backend#:v0.0.6
+    # image: zmind-backend
+    ports:
+      - "3003:3003"  # 如果你的App需要公开端口，可以映射到宿主机
+    links:
+      - zmind-backend-redis
+      - zmind-backend-mongodb
+    environment:
+      # - DB_URL=mongodb://localhost:27017/mydb
+      - NODE_ENV=production
+
+  zmind-backend-redis:
+    container_name: zmind-backend-redis
+    image: redis:latest
+    # 6379
+
+  zmind-backend-mongodb:
+    container_name: zmind-backend-mongodb
+    image: mongo:latest
+
+    # 27017
