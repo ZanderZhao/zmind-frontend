@@ -1,6 +1,4 @@
 import { createApp } from 'vue'
-import * as Sentry from '@sentry/vue'
-import { BrowserTracing } from '@sentry/tracing'
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -24,19 +22,7 @@ window.document.documentElement.setAttribute(
   'data-theme',
   isDark ? 'dark' : 'light'
 )
-const { sentryCfg } = window.CFG
-if (sentryCfg.tracingOrigins.includes(window.location.hostname)) {
-  Sentry.init({
-    app,
-    dsn: sentryCfg.dsn,
-    integrations: [
-      new BrowserTracing({
-        routingInstrumentation: Sentry.vueRouterInstrumentation(router),
-        tracingOrigins: sentryCfg.tracingOrigins
-      })
-    ],
-    tracesSampleRate: sentryCfg.tracesSampleRate
-  })
-}
+
+
 
 app.use(store).use(router).mount('#app')

@@ -2,7 +2,6 @@ const path = require('path')
 const webpack = require('webpack')
 const AutoImport = require('unplugin-auto-import/webpack')
 const Components = require('unplugin-vue-components/webpack')
-const SentryWebpackPlugin = require('@sentry/webpack-plugin')
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 const { ESBuildMinifyPlugin } = require('esbuild-loader')
@@ -20,7 +19,7 @@ module.exports = {
     index: {
       entry: './src/main.js',
       template: './public/index.html',
-      title: 'ZMind思维导图',
+      title: '知更',
       chunks: [
         'chunk-vendors',
         'chunk-vendors-2',
@@ -70,7 +69,7 @@ module.exports = {
           // @sentry|@vueuse|cropperjs 很大 单独分包
           vendors2: {
             name: 'chunk-vendors-2',
-            test: /[\\/]node_modules[\\/]@sentry|@vueuse|cropperjs/,
+            test: /[\\/]node_modules[\\/]@vueuse|cropperjs/,
             chunks: 'initial',
             priority: 3,
             reuseExistingChunk: true,
@@ -161,11 +160,7 @@ module.exports = {
         resolvers: [ElementPlusResolver()]
       }),
       require('unplugin-element-plus/webpack')({}),
-      new SentryWebpackPlugin({
-        dryRun: !IS_PROD, // 只有生成环境才上传source map
-        include: 'dist',
-        ignore: ['node_modules', 'vue.config.js']
-      }),
+      
       //* 实际上 七牛cdn对打包好的源文件自动进行了gzip
       // new CompressionWebpackPlugin({
       //   filename: '[path].gz[query]',
